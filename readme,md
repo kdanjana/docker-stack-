@@ -1,4 +1,5 @@
 u can deploy multiple replicas of mysql also , and do the nfs mounting for mysql replicas also
+rememnber u r doing nfs mounting , so whatever is in nfs mount will overwrite the container data
 the ip adress used is the private ip adress of ec2 on which the nfs server is installed.
 nfs server installation on ubuntu:
     $ pwd
