@@ -1,1 +1,25 @@
 the ip adress used is the private ip adress of ec2 on which the nfs server is installed.
+nfs server installation on ubuntu:
+    $ pwd
+      /home/ubuntu/
+    $ sudo apt-get update
+    $ sudo apt install nfs-kernel-server
+    $ mkdir nfsdata nfsvol
+    $ chmod 777 /nfsdata/
+    $ chmod 777 /nfsvol/
+    $ sudo su
+    $ vim /etc/exports
+       /home/ubuntu/nfsdata *(rw,sync,no_subtree_check)
+       /home/ubuntu/nfsvol *(rw,sync,no_subtree_check)
+    $ exports -av
+    $ exit
+    $ chown -R anybody:anygroup /nfsdata
+    $ chown -R anybody:anygroup /nfsvol
+    $ sudo systemctl restart nfs-kernel-server
+ 
+nfs client installation
+   $ sudo apt-get update
+   $ sudo apt install nfs-common
+   $ showmount -e <privare ip adress of nfs server>
+       
+    
